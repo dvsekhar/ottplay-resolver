@@ -33,6 +33,7 @@ def resolve_stream():
             page.goto(auth_url, wait_until="networkidle", timeout=20000)
             page.wait_for_timeout(10000)  # wait for JavaScript redirect
         except Exception as e:
+            print("Error:", str(e))
             browser.close()
             return jsonify({"success": False, "error": str(e)}), 500
 
